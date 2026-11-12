@@ -23,17 +23,17 @@ struct ContentView: View {
 <key>PayloadContent</key><array><dict>
 <key>DNSSettings</key><dict>
 <key>DNSProtocol</key><string>TLS</string>
-<key>ServerName</key><string>(host)</string>
+<key>ServerName</key><string>\(host)</string>
 <key>ServerAddresses</key><array><string>64.83.13.148</string></array>
 </dict>
 <key>PayloadDisplayName</key><string>林羽</string>
-<key>PayloadIdentifier</key><string>cn.hlqjh.linyu.(clean)</string>
+<key>PayloadIdentifier</key><string>cn.hlqjh.linyu.\(clean)</string>
 <key>PayloadType</key><string>com.apple.dnsSettings.managed</string>
 <key>PayloadUUID</key><string>11111111-2222-3333-4444-555555555555</string>
 <key>PayloadVersion</key><integer>1</integer>
 </dict></array>
 <key>PayloadDisplayName</key><string>林羽</string>
-<key>PayloadIdentifier</key><string>cn.hlqjh.linyu.profile.(clean)</string>
+<key>PayloadIdentifier</key><string>cn.hlqjh.linyu.profile.\(clean)</string>
 <key>PayloadRemovalDisallowed</key><false/>
 <key>PayloadType</key><string>Configuration</string>
 <key>PayloadUUID</key><string>66666666-7777-8888-9999-AAAAAAAAAAAA</string>
@@ -41,7 +41,7 @@ struct ContentView: View {
 </dict></plist>
 """
         let encoded = Data(profile.utf8).base64EncodedString()
-        if let url = URL(string: "data:application/x-apple-aspen-config;base64,(encoded)") {
+        if let url = URL(string: "data:application/x-apple-aspen-config;base64,\(encoded)") {
             UIApplication.shared.open(url)
             message = "已打开描述文件。请按提示安装，然后手动关闭自动设置。"
         }
