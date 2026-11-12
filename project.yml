@@ -1,0 +1,18 @@
+name: LinYu
+options:
+  bundleIdPrefix: cn.hlqjh
+  deploymentTarget:
+    iOS: "15.0"
+targets:
+  LinYu:
+    type: application
+    platform: iOS
+    sources:
+      - LinYu
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: cn.hlqjh.linyu
+      GENERATE_INFOPLIST_FILE: YES
+      INFOPLIST_KEY_CFBundleDisplayName: "林羽"
+      INFOPLIST_KEY_UILaunchScreen_Generation: YES
+      TARGETED_DEVICE_FAMILY: "1,2"
+      CODE_SIGNING_ALLOWED: NO
