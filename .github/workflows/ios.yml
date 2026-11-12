@@ -1,0 +1,15 @@
+name: ios
+on: [push]
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: xcodegen generate
+      - run: xcodebuild -project LinYu.xcodeproj -scheme LinYu -sdk iphoneos -configuration Release CODE_SIGNING_ALLOWED=NO -derivedDataPath build
+      - run: mkdir -p Payload && cp -R build/Build/Products/Release-iphoneos/LinYu.app Payload/ && zip -r LinYu.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: LinYu-ipa
+          path: LinYu.ipa
